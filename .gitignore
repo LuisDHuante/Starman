@@ -6,6 +6,9 @@ __pycache__/
 #Confidential Tokens
 *.conf
 
+#Dumped data
+*.csv
+
 # C extensions
 *.so
 
