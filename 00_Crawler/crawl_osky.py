@@ -1,6 +1,7 @@
 from opensky_api import OpenSkyApi
 import numpy as np
 import pandas as pd
+import os
 
 login_u="asphericalcow"
 login_p="hktibtl"
@@ -26,5 +27,9 @@ def crawl_osky():
 	df=pd.DataFrame()
 	for k in keys:
 		df[k]=data[k]
-	df.to_csv(filename)
+	fpath=f"./{int(np.floor(timestamp/(60*60*24))*60*60*24)}/"
+	if(not os.path.isdir(fpath)):
+		os.mkdir(fpath)
+	df.to_csv(fpath+filename)
+	df.to_csv("../current.csv")
 	return filename
