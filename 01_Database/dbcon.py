@@ -1,4 +1,4 @@
-#import psycopg2
+import psycopg2
 
 
 dconf={}
@@ -13,3 +13,5 @@ with open("db_logn.conf","r") as f:
 #print(dconf)
 
 con=psycopg2.connect(host=dconf["host"],port=dconf["port"],database=dconf["database"],user=dconf["user"],password=dconf["password"])
+cur=con.cursor()
+cur.execute("SELECT * FROM Flights;")
