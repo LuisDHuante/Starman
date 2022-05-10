@@ -24,8 +24,8 @@ def dump_csv():
     FL=read_dict(cflr)
     
     DF.drop(["sensors","geo_altitude","squawk","spi","position_source","vertical_rate","baro_altitude","last_contact"],axis=1,inplace=True)
-    DF.dropna()
-    DF=DF[DF["on_ground"]!=False].copy()
+    DF.dropna(inplace=True)
+    DF=DF[DF["on_ground"]==False].copy()
     
     print(DF.info())
     print(FL)
