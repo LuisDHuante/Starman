@@ -32,7 +32,7 @@ def dump_csv(con,cur):
     print(DF.info())
     print(FL)
     
-    cur.execute("DELETE * FROM Flights;")
+    cur.execute("DELETE FROM Flights;")
     T=[]
     for t in DF.iterrows():
         S=t[1]
