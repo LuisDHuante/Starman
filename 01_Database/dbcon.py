@@ -27,6 +27,7 @@ def dump_csv(con,cur):
     DF.drop(["Unnamed: 0","sensors","geo_altitude","squawk","spi","position_source","vertical_rate","baro_altitude","last_contact"],axis=1,inplace=True)
     DF.dropna(inplace=True)
     DF=DF[DF["on_ground"]==False].copy()
+    DF["time_position"]=DF["time_position"].astype('int')
     DF.drop(["on_ground"],axis=1,inplace=True)
     
     print(DF.info())
