@@ -1,4 +1,4 @@
-import psycopg2,os
+import psycopg2,psycopg2.extras,os
 import numpy as np
 import pandas as pd
 
