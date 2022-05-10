@@ -11,7 +11,7 @@ def read_Wait():
 
 
 while(True):
-	WaitTime=read_Wait()
+    WaitTime=read_Wait()
     try:
         crawl_osky()
     except:
@@ -20,8 +20,8 @@ while(True):
         crawl_solar()
     except:
         pass
-	os.system(f"python3 {base}../01_Database/dbcon.py")
-	time.sleep(WaitTime)
+    os.system(f"python3 {base}../01_Database/dbcon.py")
+    time.sleep(WaitTime)
 
 
 
