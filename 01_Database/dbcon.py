@@ -1,4 +1,4 @@
-import psycopg2
+import psycopg2,os
 
 base=os.path.dirname(os.path.realpath(__file__))+"/"
 
