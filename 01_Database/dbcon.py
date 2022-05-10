@@ -18,7 +18,8 @@ def read_dict(path):
     
 ccsv=f"{base}../current.csv"
 cflr=f"{base}../current.flr"
-def dump_csv():
+cols=["icao24", "callsign", "origin_country", "time_position", "longitude", "latitude", "velocity", "true_track"]
+def dump_csv(con,cur):
     DF=pd.read_csv(ccsv)
     
     FL=read_dict(cflr)
@@ -26,17 +27,27 @@ def dump_csv():
     DF.drop(["Unnamed: 0","sensors","geo_altitude","squawk","spi","position_source","vertical_rate","baro_altitude","last_contact"],axis=1,inplace=True)
     DF.dropna(inplace=True)
     DF=DF[DF["on_ground"]==False].copy()
-    print(DF.columns)
+    DF.drop(["on_ground"],axis=1,inplace=True)
+    
     print(DF.info())
     print(FL)
-
+    
+    cur.execute("DELETE * FROM Flights;")
+    T=[]
+    for t in DF.iterrows():
+        S=t[1]
+        L=[]
+        for c in cols:
+            L.append(S[c])
+        T.append(tuple(L))
+    print(T[0])
 dconf=read_dict(f"{base}db_logn.conf")
 
 con=psycopg2.connect(host=dconf["host"],port=dconf["port"],database=dconf["database"],user=dconf["user"],password=dconf["password"])
 cur=con.cursor()
 
 #try:
-dump_csv()
+dump_csv(con,cur)
 #except:
 #	pass
 
