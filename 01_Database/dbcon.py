@@ -1,4 +1,6 @@
 import psycopg2,os
+import numpy as np
+import pandas as pd
 
 base=os.path.dirname(os.path.realpath(__file__))+"/"
 
