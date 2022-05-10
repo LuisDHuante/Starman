@@ -1,5 +1,6 @@
 import psycopg2
 
+base=os.path.dirname(os.path.realpath(__file__))+"/"
 
 def read_dict(path):
     with open(path,"r") as f:
@@ -11,15 +12,15 @@ def read_dict(path):
         f.close()
         dconf={L.split(":")[0]:L.split(":")[1] for L in L_CONF}
 
-ccsv="./../current.csv"
-cflr="./../current.flr"
+ccsv=f"{base}../current.csv"
+cflr=f"{base}../current.flr"
 def dump_csv():
     DF=pd.read_csvA(ccsv)
     FL=read_dict(cflr)
     print(DF.info())
     print(FL)
 
-dconf=read_dict("db_logn.conf")
+dconf=read_dict(f"{base}db_logn.conf")
 
 con=psycopg2.connect(host=dconf["host"],port=dconf["port"],database=dconf["database"],user=dconf["user"],password=dconf["password"])
 cur=con.cursor()
