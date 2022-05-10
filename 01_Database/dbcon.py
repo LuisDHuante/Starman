@@ -30,8 +30,8 @@ def dump_csv(con,cur):
     DF["time_position"]=DF["time_position"].astype('int')
     DF.drop(["on_ground"],axis=1,inplace=True)
     
-    print(DF.info())
-    print(FL)
+    #print(DF.info())
+    #print(FL)
     
     cur.execute("DELETE FROM Flights;")
     T=[]
