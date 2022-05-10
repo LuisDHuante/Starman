@@ -1,7 +1,7 @@
 import psycopg2
 
 
-def read_dict():
+def read_dict(path):
     with open(path,"r") as f:
         L_CONF=[]
         for l in f.read().split("\n"):
