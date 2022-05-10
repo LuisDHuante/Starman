@@ -20,7 +20,13 @@ ccsv=f"{base}../current.csv"
 cflr=f"{base}../current.flr"
 def dump_csv():
     DF=pd.read_csv(ccsv)
+    
     FL=read_dict(cflr)
+    
+    DF.drop(["sensors","geo_altitude","squawk","spi","position_source","vertical_rate","baro_altitude","last_contact"],axis=1)
+    DF.dropna()
+    DF=DF[DF["on_ground"]!=False].copy()
+    
     print(DF.info())
     print(FL)
 
