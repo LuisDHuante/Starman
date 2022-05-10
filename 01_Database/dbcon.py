@@ -19,7 +19,7 @@ def read_dict(path):
 ccsv=f"{base}../current.csv"
 cflr=f"{base}../current.flr"
 def dump_csv():
-    DF=pd.read_csvA(ccsv)
+    DF=pd.read_csv(ccsv)
     FL=read_dict(cflr)
     print(DF.info())
     print(FL)
