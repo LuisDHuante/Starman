@@ -27,10 +27,10 @@ dconf=read_dict(f"{base}db_logn.conf")
 con=psycopg2.connect(host=dconf["host"],port=dconf["port"],database=dconf["database"],user=dconf["user"],password=dconf["password"])
 cur=con.cursor()
 
-try:
-	dump_csv()
-except:
-	pass
+#try:
+dump_csv()
+#except:
+#	pass
 
 con.commit()
 cur.close()
