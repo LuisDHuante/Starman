@@ -3,6 +3,7 @@ import psycopg2,os
 base=os.path.dirname(os.path.realpath(__file__))+"/"
 
 def read_dict(path):
+    ret=None
     with open(path,"r") as f:
         L_CONF=[]
         for l in f.read().split("\n"):
@@ -10,8 +11,9 @@ def read_dict(path):
                 continue
             L_CONF.append(l)
         f.close()
-        dconf={L.split(":")[0]:L.split(":")[1] for L in L_CONF}
-
+        ret={L.split(":")[0]:L.split(":")[1] for L in L_CONF}
+    return ret
+    
 ccsv=f"{base}../current.csv"
 cflr=f"{base}../current.flr"
 def dump_csv():
