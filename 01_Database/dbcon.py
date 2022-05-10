@@ -40,7 +40,7 @@ def dump_csv(con,cur):
         for c in cols:
             L.append(S[c])
         T.append(tuple(L))
-    psycopg2.extras.execute_values(cur,f"INSERT INTO Flights VALUES %s;",T,template="(%s,%s,%s,%f,%f,%f,%f,%f)")
+    psycopg2.extras.execute_values(cur,f"INSERT INTO Flights VALUES %s;",T)
 dconf=read_dict(f"{base}db_logn.conf")
 
 con=psycopg2.connect(host=dconf["host"],port=dconf["port"],database=dconf["database"],user=dconf["user"],password=dconf["password"])
