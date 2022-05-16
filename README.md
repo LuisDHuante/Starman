@@ -15,7 +15,7 @@ Final Project for the Distributed Computing 2022-2 class, taught by Dr. Victor d
 # Introduction
 The following project intends to provide a functional endpoint in which a potential user can visualize a map containing worldwide flight routes in real time. 
 
-The need for such a project stems mainly out of curiosity, as the patterns of flight of a population can aid in the understanding of the global situation as a whole, such as, for example, visualizing armed conflicts or trade associations.
+The need for such a project stems as a desire to function as a real-time alert system with which to calculate the range in which a solar flare can cause interference with the equipment on board of airships currently flying at high altitudes, given their vulnerability to EMP events.
 
 As a final project, this aims to be a practical demostration of how a series of computers in parallel can be used to obtain an easily scalable product that could potentially be commercialized and expanded upon once completed, without relying on a single, high performance computer to perform the entire process.
 
@@ -28,7 +28,7 @@ In charge of obtaining real-time data from the OpenSky Network API, through the 
 
 > Storage Server
 
-In charge of storing up-to-date data, to be sorted and retrieved as needed by the Processing Server.
+In charge of storing up-to-date data with PostgreSQL, to be sorted and retrieved as needed by the Processing Server.
 
 > Processing Server
 
