@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if pgrep -x "python3" > /dev/null
+if pgrep -u "anuviedo" -x "python3" > /dev/null
 then
     echo "Running"
 else
