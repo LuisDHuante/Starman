@@ -24,11 +24,11 @@ The expected output of this project is a set of four servers, each of which prov
 
 > Data Retrieval Server
 
-In charge of obtaining real-time data from the OpenSky Network API, through the use of Python. Will relay said information in a timely manner to the Storage Server.
+In charge of obtaining real-time data from the OpenSky Network API, through the use of Python. Will relay said information in a timely manner to the Storage Server, while also keeping copies of recent data points as required for archive purposes.
 
 > Storage Server
 
-In charge of storing historical data, to be sorted and retrieved as needed by the Processing Server.
+In charge of storing up-to-date data, to be sorted and retrieved as needed by the Processing Server.
 
 > Processing Server
 
