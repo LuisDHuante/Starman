@@ -35,5 +35,5 @@ def crawl_osky():
 	df.to_csv(fpath+filename)
 	df.to_csv(f"{base}../current.csv")
 	dt=timestamp-df["time_position"].max()
-	os.system(f"echo {dt} >> timestamps.idata")
+	os.system(f"echo {dt} >> {base}../timestamps.idata")
 	return filename
