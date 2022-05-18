@@ -38,6 +38,7 @@ In charge of generating map images on demand, based on the request by the Web Se
 
 In charge of displaying map images to the end user through a modern web interface
 
+# General system architecture
 
 # Toolset
 The project is to be developed by making use of modern Python 3 libraries, including but not limited to:
