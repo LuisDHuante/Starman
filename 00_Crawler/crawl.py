@@ -5,7 +5,7 @@ from crawl_solar import crawl_solar
 base=os.path.dirname(os.path.realpath(__file__))+"/"
 
 def read_Wait():
-	t=.5*60
+	t=.2*60
 	
 	return int(t)
 
@@ -20,7 +20,7 @@ while(True):
         crawl_solar()
     except:
         pass
-    os.system(f"python3 {base}../01_Database/dbcon.py")
+    #os.system(f"python3 {base}../01_Database/dbcon.py")
     time.sleep(WaitTime)
 
 
