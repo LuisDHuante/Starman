@@ -46,6 +46,7 @@ dconf=read_dict(f"{base}../01_Database/db_logn.conf")
 con=psycopg2.connect(host=dconf["host"],port=dconf["port"],database=dconf["database"],user=dconf["user"],password=dconf["password"])
 conf=psycopg2.connect(host=dconf["host"],port=dconf["port"],database="testing",user=dconf["user"],password=dconf["password"])
 cur=con.cursor()
+curf=conf.cursor()
 
 #try:
 cur.execute("SELECT * FROM flights;")
@@ -55,6 +56,9 @@ with open('dump.idata',"wb") as f:
 #except:
 #	pass
 
+conf.commit()
 con.commit()
 cur.close()
+curf.close()
 con.close()
+conf.close()
