@@ -47,11 +47,11 @@ def crawl_osky():
 	df=pd.DataFrame()
 	for k in keys:
 		df[k]=data[k]
-	fpath=f"{base}{int(np.floor(timestamp/(60*60*24))*60*60*24)}/"
-	if(not os.path.isdir(fpath)):
-		os.mkdir(fpath)
-	df.to_csv(fpath+filename)
+	#fpath=f"{base}{int(np.floor(timestamp/(60*60*24))*60*60*24)}/"
+	#if(not os.path.isdir(fpath)):
+	#	os.mkdir(fpath)
+	#df.to_csv(fpath+filename)
 	df.to_csv(f"{base}../current.csv")
-	dt=timestamp-df["time_position"].max()
-	os.system(f"echo {dt} >> {base}../timestamps.idata")
+	#dt=timestamp-df["time_position"].max()
+	#os.system(f"echo {dt} >> {base}../timestamps.idata")
 	return filename
