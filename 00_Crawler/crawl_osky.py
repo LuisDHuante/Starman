@@ -3,10 +3,28 @@ import numpy as np
 import pandas as pd
 import os
 
-login_u="asphericalcow"
-login_p="hktibtl"
 
 base=os.path.dirname(os.path.realpath(__file__))+"/"
+login_u=""
+login_p=""
+
+login_d=None
+
+def read_dict(path):
+    ret=None
+    with open(path,"r") as f:
+        L_CONF=[]
+        for l in f.read().split("\n"):
+            if(len(l)<1):
+                continue
+            L_CONF.append(l)
+        f.close()
+        ret={L.split(":")[0]:L.split(":")[1] for L in L_CONF}
+    return ret
+
+login_d=read_dict(base+"osky.cfg")
+login_u=login_d["user"]
+login_p=login_d["passwd"]
 
 api=OpenSkyApi(login_u,login_p)
 login_u=None
