@@ -44,11 +44,14 @@ def dump_csv(con,cur):
 dconf=read_dict(f"{base}../01_Database/db_logn.conf")
 
 con=psycopg2.connect(host=dconf["host"],port=dconf["port"],database=dconf["database"],user=dconf["user"],password=dconf["password"])
+conf=psycopg2.connect(host=dconf["host"],port=dconf["port"],database="testing",user=dconf["user"],password=dconf["password"])
 cur=con.cursor()
 
 #try:
 cur.execute("SELECT * FROM flights;")
-print(cur.fetchall())
+with open('dump.idata',"wb") as f:
+    l=str(cur.fetchall())
+    f.write(l)
 #except:
 #	pass
 
