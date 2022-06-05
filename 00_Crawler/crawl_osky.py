@@ -1,7 +1,7 @@
 from opensky_api import OpenSkyApi
 import numpy as np
 import pandas as pd
-import os
+import os,time
 
 
 base=os.path.dirname(os.path.realpath(__file__))+"/"
@@ -38,7 +38,7 @@ def crawl_osky():
 	for k in keys:
 		data[k]=[]
 	state=api.get_states()
-	timestamp=state.time
+	timestamp=int(time.time())
 	filename=f"OS_{timestamp}.csv"
 	states=state.states
 	for s in states:
@@ -52,4 +52,6 @@ def crawl_osky():
 		os.mkdir(fpath)
 	df.to_csv(fpath+filename)
 	df.to_csv(f"{base}../current.csv")
+	dt=timestamp-df["time_position"].max()
+	os.system(f"echo {dt} >> {base}../timestamps.idata")
 	return filename

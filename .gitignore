@@ -9,6 +9,7 @@ __pycache__/
 #Dumped data
 *.csv
 *.flr
+*.idata
 
 # C extensions
 *.so
