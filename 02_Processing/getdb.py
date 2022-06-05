@@ -50,7 +50,7 @@ curf=conf.cursor()
 
 #try:
 cur.execute("SELECT * FROM flights;")
-with open('dump.idata',"wb") as f:
+with open('dump.idata',"w") as f:
     l=str(cur.fetchall())
     f.write(l)
 #except:
