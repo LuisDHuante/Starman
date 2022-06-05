@@ -16,7 +16,7 @@ def read_dict(path):
 base=os.path.dirname(os.path.realpath(__file__))+"/"
 
 def read_Wait():
-	d=read_dict("time.cfg")
+	d=read_dict(f"{base}time.cfg")
 	t=d["delay"]
 	
 	return int(t)
