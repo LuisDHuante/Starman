@@ -50,11 +50,9 @@ curf=conf.cursor()
 
 #try:
 cur.execute("SELECT * FROM flights;")
-with open(f'{base}dump.idata',"w") as f:
-    l=str(cur.fetchall())
-    f.write(l)
-#except:
-#	pass
+flights=cur.fetchall()
+curf.execute("SELECT * FROM flares")
+flares=curf.fetchall()
 
 conf.commit()
 con.commit()
@@ -62,3 +60,8 @@ cur.close()
 curf.close()
 con.close()
 conf.close()
+
+make_image(flights,flares)
+
+#except:
+#	pass
