@@ -21,24 +21,24 @@ def read_dict(path):
 dconf=read_dict(f"{base}../01_Database/db_logn.conf")
 
 con=psycopg2.connect(host=dconf["host"],port=dconf["port"],database=dconf["database"],user=dconf["user"],password=dconf["password"])
-conf=psycopg2.connect(host=dconf["host"],port=dconf["port"],database="testing",user=dconf["user"],password=dconf["password"])
+#conf=psycopg2.connect(host=dconf["host"],port=dconf["port"],database="testing",user=dconf["user"],password=dconf["password"])
 cur=con.cursor()
-curf=conf.cursor()
+#curf=conf.cursor()
 
 #try:
 cur.execute("SELECT * FROM flights;")
 flights=cur.fetchall()
-curf.execute("SELECT * FROM flares;")
-flares=curf.fetchall()
+#curf.execute("SELECT * FROM flares;")
+#flares=curf.fetchall()
 
-conf.commit()
+#conf.commit()
 con.commit()
 cur.close()
-curf.close()
+#curf.close()
 con.close()
-conf.close()
+#conf.close()
 
-make_image(flights,flares)
+make_image(flights,[])
 
 #except:
 #	pass
